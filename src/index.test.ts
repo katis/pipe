@@ -14,6 +14,7 @@ describe("pipe", () => {
       a + parseInt(b, radix);
     const result = pipe("13")
       .to(parseInt, 10)
+      .to(String.prototype.replace.call, "")
       .end(addParsed, "10", 10);
     expect(result).toEqual(23);
   });
