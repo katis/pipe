@@ -32,7 +32,7 @@ import { pipe } from "@katis/pipe";
 const result = pipe("Value: 1300$")
   .to(removePrefix, "Value: ")
   .to(replace, "$", "")
-  .end(parseInt, 10);
+  .out(parseInt, 10);
 ```
 
 ## API
@@ -49,7 +49,7 @@ extra arguments as rest of the parameters.
 
 Returns a new pipeline where the result is the return value of the function.
 
-### `.end(fn, ...fnExtraArgs)`
+### `.out(fn, ...fnExtraArgs)`
 
 Like `.to()` it takes a function that transforms the value, but just returns the transformed
 value, ending the pipeline.

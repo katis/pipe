@@ -4,7 +4,7 @@ describe("pipe", () => {
   it("should transform value using functions provided to to-operators", () => {
     const result = pipe("string")
       .to(s => s + "-test")
-      .end(s => s.length * 2);
+      .out(s => s.length * 2);
 
     expect(result).toEqual("string-test".length * 2);
   });
@@ -15,7 +15,7 @@ describe("pipe", () => {
     const result = pipe("13")
       .to(parseInt, 10)
       .to(String.prototype.replace.call, "")
-      .end(addParsed, "10", 10);
+      .out(addParsed, "10", 10);
     expect(result).toEqual(23);
   });
 });

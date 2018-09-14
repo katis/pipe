@@ -4,7 +4,7 @@ export interface Pipe<A> {
     ...args: Rest
   ): Pipe<B>;
 
-  end<B, Rest extends any[]>(
+  out<B, Rest extends any[]>(
     fn: (value: A, ...args: Rest) => B,
     ...args: Rest
   ): B;
@@ -17,7 +17,7 @@ export const pipe = <A>(value: A): Pipe<A> => ({
   ): Pipe<B> {
     return pipe(fn(value, ...args));
   },
-  end<B, Rest extends any[]>(
+  out<B, Rest extends any[]>(
     fn: (value: A, ...args: Rest) => B,
     ...args: Rest
   ): B {
