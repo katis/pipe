@@ -21,18 +21,18 @@ const removePrefix = (str: string, prefix: string): string =>
 const replace = (str: string, search: string, replaceWith: string) =>
   str.replace(search, replaceWith);
 
-parseInt(replace(removePrefix("Value: 1300$", "Value: "), 10), "$" "");
+parseInt(replace(removePrefix("Value: 1300$", "Value: "), "$" ""), 10);
 ```
 
 Pipe makes those calls sequential:
 
 ```ts
-import { pipe } from "@katis/pipe";
+import { pipe } from '@katis/pipe'
 
-const result = pipe("Value: 1300$")
-  .to(removePrefix, "Value: ")
-  .to(replace, "$", "")
-  .out(parseInt, 10);
+const result = pipe('Value: 1300$')
+  .to(removePrefix, 'Value: ')
+  .to(replace, '$', '')
+  .out(parseInt, 10)
 ```
 
 ## API
